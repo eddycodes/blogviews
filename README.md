@@ -1,5 +1,5 @@
 # Blog Views Extension
-This plugin is an extension to the [RainLab.Blog](https://github.com/rainlab/blog-plugin) plugin. This extension add views tracking to blog posts and allows to add views counter to a post and display popular posts widget.
+This plugin is an extension to the [Winter.Blog](https://github.com/wintercms/wn-blog-plugin) plugin. This extension add views tracking to blog posts and allows to add views counter to a post and display popular posts widget.
 
 Adds dynamic views property to Post model: {{ post.views }}
 
