@@ -1,13 +1,13 @@
-<?php namespace Vdomah\User\Updates;
+<?php namespace ImpulseTechnologies\User\Updates;
 
 use Schema;
-use October\Rain\Database\Updates\Migration;
+use Winter\Storm\Database\Updates\Migration;
 
 class CreatePostViewsTable extends Migration
 {
     public function up()
     {
-        Schema::create('vdomah_blogviews_views', function($table)
+        Schema::create('impulsetechnologies_blogviews_views', function($table)
         {
             $table->engine = 'InnoDB';
             $table->integer('views');
@@ -18,6 +18,6 @@ class CreatePostViewsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('vdomah_blogviews_views');
+        Schema::dropIfExists('impulsetechnologies_blogviews_views');
     }
 }

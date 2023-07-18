@@ -1,24 +1,24 @@
-<?php namespace Vdomah\BlogViews;
+<?php namespace ImpulseTechnologies\BlogViews;
 
 use Db;
 use Cookie;
 use Event;
 use Session;
 use System\Classes\PluginBase;
-use Rainlab\Blog\Components\Post as PostComponent;
-use Rainlab\Blog\Models\Post as PostModel;
+use Winter\Blog\Components\Post as PostComponent;
+use Winter\Blog\Models\Post as PostModel;
 use Cms\Classes\Controller;
 use DeviceDetector\Parser\Bot as BotParser;
-use Vdomah\BlogViews\Components\Popular;
-use Vdomah\BlogViews\Components\Views;
-use Vdomah\BlogViews\Models\Settings;
+use ImpulseTechnologies\BlogViews\Components\Popular;
+use ImpulseTechnologies\BlogViews\Components\Views;
+use ImpulseTechnologies\BlogViews\Models\Settings;
 
 /**
  * BlogViews Plugin Information File
  */
 class Plugin extends PluginBase
 {
-    const POST_VIEWED = 'vdomah-blog-post-viewed';
+    const POST_VIEWED = 'impulsetechnologies-blog-post-viewed';
     const EVENT_BEFORE_TRACK = 'blogviews.before.track';
     const PARAM_TRACK_PREVENT = 'trackPrevent';
     const PARAM_TRACK_BOT = 'trackBot';
@@ -31,7 +31,7 @@ class Plugin extends PluginBase
     /**
      * @var string   Table to store post views count
      */
-    public $table_views = 'vdomah_blogviews_views';
+    public $table_views = 'impulsetechnologies_blogviews_views';
 
     /**
      * Returns information about this plugin.
@@ -41,11 +41,11 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'vdomah.blogviews::lang.plugin.name',
-            'description' => 'vdomah.blogviews::lang.plugin.description',
+            'name'        => 'impulsetechnologies.blogviews::lang.plugin.name',
+            'description' => 'impulsetechnologies.blogviews::lang.plugin.description',
             'author'      => 'Art Gek',
             'icon'        => 'icon-signal',
-            'homepage'    => 'https://github.com/vdomah/blogviews'
+            'homepage'    => 'https://github.com/impulsetechnologies/blogviews'
         ];
     }
 
@@ -94,7 +94,7 @@ class Plugin extends PluginBase
 
         PostModel::extend(function($model) {
             $model->addDynamicMethod('getViewsAttribute', function() use ($model) {
-                $obj = Db::table('vdomah_blogviews_views')
+                $obj = Db::table('impulsetechnologies_blogviews_views')
                     ->where('post_id', $model->getKey())->first();
 
                 $out = is_null($obj) ? 0 : $obj->views;
@@ -210,9 +210,9 @@ class Plugin extends PluginBase
     {
         return [
             'config' => [
-                'label'       => 'vdomah.blogviews::lang.plugin.name',
-                'description' => 'vdomah.blogviews::lang.plugin.description_settings',
-                'category'    => 'rainlab.blog::lang.blog.menu_label',
+                'label'       => 'impulsetechnologies.blogviews::lang.plugin.name',
+                'description' => 'impulsetechnologies.blogviews::lang.plugin.description_settings',
+                'category'    => 'winter.blog::lang.blog.menu_label',
                 'icon'        => 'icon-signal',
                 'class'       => Settings::class,
                 'order'       => 501,
