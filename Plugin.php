@@ -24,9 +24,9 @@ class Plugin extends PluginBase
     const PARAM_TRACK_BOT = 'trackBot';
 
     /**
-     * @var array   Require the RainLab.Blog plugin
+     * @var array   Require the Winter.Blog plugin
      */
-    public $require = ['RainLab.Blog'];
+    public $require = ['Winter.Blog'];
 
     /**
      * @var string   Table to store post views count
